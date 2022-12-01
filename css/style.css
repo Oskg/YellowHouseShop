@@ -1,34 +1,26 @@
-.navbar {
-    /*background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(230,230,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,1) 100%);*/
-    /*background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(230,230,0,1) 50%, rgba(0,0,0,1) 85%);*/
+.navbar-gradient {
     background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(255,255,0,1) 25%, rgba(230,230,0,1) 50%, rgba(0,0,0,1) 85%);
 }
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-header{
-/*    position: relative;
-    margin: 0 auto 0;
-    padding-top: 0px;*/
-}
-body {
-/*    padding-top: 3rem;
-    padding-bottom: 3rem;
-    color: #5a5a5a;*/
+.text-yellow {
+    color: rgba(255,255,0,1);
 }
 
-
+.img-my {
+    height: 350px;
+    width: 200px;
+    margin: auto;
+}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-    bottom: 3rem;
+    bottom: 10rem;
     z-index: 10;
 }
 
@@ -36,23 +28,6 @@ body {
 .carousel-item {
     height: 32rem;
 }
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-/* rtl:begin:ignore */
-.marketing .col-lg-4 p {
-    margin-right: .75rem;
-    margin-left: .75rem;
-}
-/* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
