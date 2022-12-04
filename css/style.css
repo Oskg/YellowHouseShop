@@ -6,11 +6,18 @@
     color: rgba(255,255,0,1);
 }
 
-.img-my {
+.img-cards {
     height: 350px;
-    width: 200px;
+    width: 250px;
     margin: auto;
 }
+
+.img-carousel {
+    height: 32rem;
+    width: auto;
+    margin: auto;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -33,7 +40,7 @@
 ------------------------- */
 
 .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 3rem 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
