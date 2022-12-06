@@ -18,6 +18,11 @@
     margin: auto;
 }
 
+.FAQ {
+    color: rgba(255,255,0,1);
+    text-align: center;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
