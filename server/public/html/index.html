@@ -31,7 +31,7 @@
     </div>
 </nav>
 
-<div class="modal" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -40,9 +40,8 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                    <img class="mb-4" src="../img/logo.svg" alt="" width="72" height="57">
                     <h1 class="h3 mb-3 fw-normal">Пожалуйста, войдите</h1>
-
                     <div class="form-floating">
                         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Адрес эл. почты</label>
@@ -51,7 +50,6 @@
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Пароль">
                         <label for="floatingPassword">Пароль</label>
                     </div>
-
                     <div class="checkbox mb-3">
                         <label>
                             <input type="checkbox" value="remember-me"> Запомнить меня
@@ -67,7 +65,8 @@
         </div>
     </div>
 </div>
-<div class="modal" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+
+<div class="modal" id="exampleModalToggle2" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -76,16 +75,32 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-                    <h1 class="h3 mb-3 fw-normal">Пожалуйста, войдите</h1>
+                    <img class="mb-4" src="../img/logo.svg" alt="" width="72" height="57">
+                    <h1 class="h3 mb-3 fw-normal">Заполните поля для регистрации</h1>
 
                     <div class="form-floating">
-                        <input type="email" class="form-control" id="floatingInput2" placeholder="name@example.com">
-                        <label for="floatingInput">Адрес эл. почты</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Имя">
+                        <label for="firstName">Имя</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword2" placeholder="Пароль">
-                        <label for="floatingPassword">Пароль</label>
+                        <input type="text" class="form-control" id="secondName" placeholder="Фамилия">
+                        <label for="secondName">Фамилия</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Номер телефона">
+                        <label for="phoneNumber">Номер телефона</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput_2" placeholder="name@example.com">
+                        <label for="floatingInput_2">Адрес эл. почты</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword_2" placeholder="Пароль">
+                        <label for="floatingPassword_2">Пароль</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="address" placeholder="Адрес">
+                        <label for="address">Адрес</label>
                     </div>
 
                     <div class="checkbox mb-3">
@@ -93,7 +108,7 @@
                             <input type="checkbox" value="remember-me"> Запомнить меня
                         </label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
                     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
                 </form>
             </div>
@@ -188,7 +203,7 @@
                 <h2 class="featurette-heading fw-normal lh-1">Винтаж</h2>
                 Что-то про винтаж...
                 <div class="d-flex bg-light justify-content-center">
-                    <div class="p-2"><button type="button" class="btn btn-warning">Хочу этот стиль!</button></div>
+                    <div class="p-2"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Хочу этот стиль!</button></div>
                 </div>
             </div>
             <div class="col-md-7">
@@ -244,7 +259,7 @@
                 <h2 class="featurette-heading fw-normal lh-1">Кэжуал</h2>
                 Что-то про кэжуал...
                 <div class="d-flex bg-light justify-content-center">
-                    <div class="p-2"><button type="button" class="btn btn-warning">Хочу этот стиль!</button></div>
+                    <div class="p-2"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Хочу этот стиль!</button></div>
                 </div>
             </div>
         </div>
@@ -254,7 +269,7 @@
                 <h2 class="featurette-heading fw-normal lh-1">Стрит</h2>
                 Что-то про стрит...
                 <div class="d-flex bg-light justify-content-center">
-                    <div class="p-2"><button type="button" class="btn btn-warning">Хочу этот стиль!</button></div>
+                    <div class="p-2"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Хочу этот стиль!</button></div>
                 </div>
             </div>
             <div class="col-md-7">
