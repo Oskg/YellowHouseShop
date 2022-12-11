@@ -1,9 +1,13 @@
 const express = require('express');
-const cors = require('cors');
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const ejs = require('ejs')
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+
 const mainPage = require("./routers/mainPage");
+
 require('dotenv').config()
 
 const app = express()
@@ -12,6 +16,11 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('combined'))
 app.use('/',mainPage)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(cors({
+    origin: ['http://localhost:5000', 'http://25.21.246.243:8080']
+}));
 const start = async () => {
     try {
         app.listen(PORT,() => console.log((`Server started on PORT = ${PORT}`)))
