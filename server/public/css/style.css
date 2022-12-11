@@ -6,6 +6,14 @@
     color: rgba(255,255,0,1);
 }
 
+.text-yellow_2 {
+    color: #e8e22e;
+}
+
+body {
+    background: #000;
+}
+
 .img-cards {
     height: 350px;
     width: 250px;
@@ -19,7 +27,7 @@
 }
 
 .FAQ {
-    color: rgba(255,255,0,1);
+    color: #e8e22e;;
     text-align: center;
 }
 
