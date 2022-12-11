@@ -97,7 +97,7 @@
                         <input type="text" class="form-control" id="address" placeholder="Адрес">
                         <label for="address">Адрес</label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
+                    <button id="registerBtn" class="w-100 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
                 </form>
             </div>
             <div class="modal-footer justify-content-center">
@@ -407,64 +407,45 @@
 })</script>
 <script>
 
-var form = $('#register');
-form.on('submit', function(event) {
-    // Prevent the form from being submitted
-    event.preventDefault();
+        function getFormData(formId) {
+        // Find the form by its ID
+        var form = $('#' + formId);
 
-    // Get the for attribute from each label
-    var keys = $('label').map(function() {
-        return $(this).attr('for');
-    }).get();
+        // Check if the form exists
+        if (form.length) {
+        // Create an empty object to store the form data
+        var data = {};
 
-    // Get the values from each input field
-    var values = $('input[type="text"], input[type="password"], input[type="email"]')
-        .filter(function() {
-            return $(this).val() !== '';
-        })
-        .map(function() {
-            return $(this).val();
-        })
-        .filter(function(value, index, self) {
-            // Check if the array exists and is not empty
-            if (self === undefined || self.length === 0) {
-                return [];
-            }
-            return self.indexOf(value) === index;
-        }).get();
+        // Get all the input fields in the form
+        var inputFields = form.find('input');
 
-    // Create a JavaScript object with the label for attribute as the keys and the input values as the values
-    var data = keys.reduce(function(obj, key, index) {
-        obj[key] = values[index];
-        return obj;
-    }, {});
+        // Loop through the input fields and add their data to the object
+        inputFields.each(function() {
+        // Get the ID of the input field
+        var key = $(this).attr('id');
 
-    // Filter the keys to only include "firstName", "lastName", "phoneNumber", "email", and "address"
-    var filteredKeys = keys.filter(function(key) {
-        return key === "firstName" || key === "lastName" || key === "password"|| key === "phoneNumber" || key === "email" || key === "address";
+        // Get the value of the input field
+        var value = $(this).val();
+
+        // Add the data to the object
+        data[key] = value;
     });
 
-    // Create a new JavaScript object with only the filtered keys and their corresponding values
-    var filteredData = filteredKeys.reduce(function(obj, key) {
-        obj[key] = data[key];
-        return obj;
-    }, {});
+        // Convert the object to JSON and return it
+        return JSON.stringify(data);
+    } else {
+        // Handle the error if the form does not exist
+        console.error('Error: Form with ID "' + formId + '" not found');
+    }
+    }
 
-    // Convert the JavaScript object to JSON
-    var json = JSON.stringify(filteredData);
-    console.log(json)
-
-    // Send the JSON to a URL using an AJAX request
-    $.ajax({
-        type: 'POST',
-        url: 'http://localhost:5000/register',
-        data: json,
-        contentType: 'application/json',
-        success: function(response) {
-            console.log(response)
-        }
+        // Add an event listener to the submit button
+        var submitButton = document.getElementById('registerBtn');
+        submitButton.addEventListener('click', function(event) {
+        // Get the form data and log it to the console
+        var formData = getFormData('register');
+        console.log(formData);
     });
-});
 </script>
 </body>
 </html>
