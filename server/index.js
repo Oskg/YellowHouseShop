@@ -18,9 +18,11 @@ app.use(morgan('combined'))
 app.use('/',mainPage)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
-app.use(cors({
-    origin: ['http://localhost:5000', 'http://25.21.246.243:8080']
-}));
+app.use(cors())
+app.use(function (req,res,next){
+    res.header('Access-Control-Allow-Origin','*' )
+    res.header('Acces-Control-Allow-Methods','GET,PUT,POST,DELETE')
+})
 const start = async () => {
     try {
         app.listen(PORT,() => console.log((`Server started on PORT = ${PORT}`)))

@@ -408,44 +408,72 @@
 <script>
 
         function getFormData(formId) {
-        // Find the form by its ID
-        var form = $('#' + formId);
+            // Find the form by its ID
+            var form = $('#' + formId);
 
-        // Check if the form exists
-        if (form.length) {
-        // Create an empty object to store the form data
-        var data = {};
+            // Check if the form exists
+            if (form.length) {
+                // Create an empty object to store the form data
+                var data = {};
 
-        // Get all the input fields in the form
-        var inputFields = form.find('input');
+                // Get all the input fields in the form
+                var inputFields = form.find('input');
 
-        // Loop through the input fields and add their data to the object
-        inputFields.each(function() {
-        // Get the ID of the input field
-        var key = $(this).attr('id');
+                // Loop through the input fields and add their data to the object
+                inputFields.each(function () {
+                    // Get the ID of the input field
+                    var key = $(this).attr('id');
 
-        // Get the value of the input field
-        var value = $(this).val();
+                    // Get the value of the input field
+                    var value = $(this).val();
 
-        // Add the data to the object
-        data[key] = value;
-    });
+                    // Add the data to the object
+                    data[key] = value;
+                });
 
-        // Convert the object to JSON and return it
-        return JSON.stringify(data);
-    } else {
-        // Handle the error if the form does not exist
-        console.error('Error: Form with ID "' + formId + '" not found');
-    }
-    }
+                // Convert the object to JSON and return it
+                return JSON.stringify(data);
+            } else {
+                // Handle the error if the form does not exist
+                console.error('Error: Form with ID "' + formId + '" not found');
+            }
+        }
 
         // Add an event listener to the submit button
+        function sendFormData(formId, url) {
+            // Get the form data
+            var formData = getFormData(formId);
+            // Send the form data as a POST request to the specified URL
+            $.post(url, formData, function(response) {
+                // Handle the response from the server
+                console.log(formData)
+                console.log(response);
+            });
+        }
         var submitButton = document.getElementById('registerBtn');
         submitButton.addEventListener('click', function(event) {
-        // Get the form data and log it to the console
-        var formData = getFormData('register');
-        console.log(formData);
-    });
+            var data = getFormData('register')
+            const controller = new AbortController();
+            const signal = controller.signal;
+            data = JSON.parse(data)
+            console.log(data)
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+                signal: signal
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                });
+
+
+        });
+
+
 </script>
 </body>
 </html>
